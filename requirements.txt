@@ -3,3 +3,4 @@ pygame
 copy
 random
 os
+pytest
