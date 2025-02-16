@@ -4,3 +4,6 @@ copy
 random
 os
 pytest
+numpy
+pandas
+matplotlib
