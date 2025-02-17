@@ -13,7 +13,7 @@ def test_sudoku_solver():
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
-    sudoku = Sudoku(board)
+    sudoku = sudoku(board)
     solved = sudoku.solve()
     assert solved == True
     assert sudoku.board == [
