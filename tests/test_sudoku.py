@@ -40,7 +40,7 @@ def test_invalid_sudoku():
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
-    sudoku = Sudoku(board)
-    board[0][1] = 5  # Introduce an invalid condition
-    solved = sudoku.solve()
+    board = generate(board,10)
+    valid = is_valid_move(board,0,1,5)  # Introduce an invalid condition
+    solved = sudoku.solve_sudoku(board)
     assert solved == False
