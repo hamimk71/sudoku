@@ -1,8 +1,5 @@
-Project Title: 
-Enhancing the sudoku.py so that it has more interactive graphics
-It will run on an Android handphone.
-
-Installation:
-1) Clone the repository: 'git clone https://github.com/hamimk71/
-2) Navigate to the project directory: 'sudoku'
-3) Install dependencies: 'npm install' or 'pip install-r requirements.txt'
+Project Title:
+Improving the program so that it will be more interesting and interactive:
+1) It has an eye-catching interface.
+2) It can be running on handphone.
+3) It offers a few options of difficulty level to choose.
