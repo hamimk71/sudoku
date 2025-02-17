@@ -1,5 +1,5 @@
 import pytest
-from sudoku import sudoku
+from sudoku import solve_sudoku
 
 def test_sudoku_solver():
     board = [
