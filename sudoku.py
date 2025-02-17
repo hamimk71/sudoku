@@ -56,17 +56,25 @@ def write_board_to_file(filename, board):
     except Exception as e:
         print(f"Error writing file: {e}")
 
+
 def is_valid_move(board, row, col, num):
+    # Check if the number is already in the row
+    if num in board[row]:
+        return False
+
+    # Check if the number is already in the column
     for i in range(9):
-        if board[row][i] == num or board[i][col] == num:
+        if board[i][col] == num:
             return False
+
+    # Check if the number is in the 3x3 sub-grid
     start_row, start_col = 3 * (row // 3), 3 * (col // 3)
     for i in range(3):
         for j in range(3):
             if board[start_row + i][start_col + j] == num:
                 return False
-    return True
 
+    return True
 
 
 def solve_sudoku(board):
