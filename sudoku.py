@@ -30,6 +30,7 @@ def play_sound(sound_file):
     except pygame.error as e:
         print(f"Error playing sound {sound_file}: {e}")
 
+
 def read_board_from_file(filename):
     board = [[0]*9 for _ in range(9)]
     try:
@@ -54,7 +55,7 @@ def write_board_to_file(filename, board):
             writer.writerows(board)
     except Exception as e:
         print(f"Error writing file: {e}")
-###########################################################################################################################
+
 def is_valid_move(board, row, col, num):
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
@@ -65,7 +66,9 @@ def is_valid_move(board, row, col, num):
             if board[start_row + i][start_col + j] == num:
                 return False
     return True
-##########################################################################################################################
+
+
+
 def solve_sudoku(board):
     empty = find_empty_cell(board)
     if not empty:
@@ -78,14 +81,16 @@ def solve_sudoku(board):
                 return True
             board[row][col] = 0
     return False
-##########################################################################################################################
+
+
 def find_empty_cell(board):
     for i in range(9):
         for j in range(9):
             if board[i][j] == 0:
                 return (i, j)
     return None
-##########################################################################################################################
+
+
 def draw_grid(screen, position):
     top_left_x, top_left_y = position
     for i in range(10):
@@ -99,7 +104,7 @@ def draw_grid(screen, position):
                          (top_left_x + i * CELL_SIZE, top_left_y + GRID_SIZE),
                          thickness)
 
-######################################################################################################################
+
 def draw_numbers(screen, board, prev_board, position, selected):
     font = pygame.font.SysFont('Arial', 24)
     top_left_x, top_left_y = position
@@ -120,7 +125,9 @@ def draw_numbers(screen, board, prev_board, position, selected):
                              (top_left_x + col * CELL_SIZE, top_left_y + row * CELL_SIZE, CELL_SIZE, CELL_SIZE), 2)
     else:
         print(f"draw_numbers(): Board is Empty!")
-###########################################################################################################################
+
+
+
 def draw_buttons(screen, grid_position, count_error, start_time):
     buttons = {}
     screen_width = screen.get_width()
@@ -185,7 +192,9 @@ def draw_buttons(screen, grid_position, count_error, start_time):
         buttons[label] = rect
 
     return buttons
-##########################################################################################################################
+
+
+
 def draw_background_moles(screen, board, prev_board, position):
 
     x = y = 0
@@ -209,7 +218,9 @@ def draw_background_moles(screen, board, prev_board, position):
             text = font.render(" ", True, COLORS['user_text'])
             text_rect = text.get_rect(center=(x + CELL_SIZE // 2, y + CELL_SIZE // 2))
             screen.blit(text, text_rect)
-############################################################################################################################
+
+
+
 def generate_board(board, num_missing_cell):
 
     solved_board = copy.deepcopy(board)
@@ -230,7 +241,9 @@ def generate_board(board, num_missing_cell):
             count += 1
     
     return board
-############################################################################################################################
+
+
+
 def draw_background(screen):
     background_image = pygame.image.load('img_bg1.png')
     background_image = pygame.transform.scale(background_image, (screen.get_width() // 3, screen.get_height()))
