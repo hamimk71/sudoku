@@ -1,5 +1,5 @@
 import pytest
-from sudoku import solve_sudoku
+from sudoku import Sudoku, generate_board
 
 def test_sudoku_solver():
     board = [
@@ -13,7 +13,7 @@ def test_sudoku_solver():
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
-    sudoku = sudoku(board)
+    sudoku = Sudoku(board)
     solved = sudoku.solve()
     assert solved == True
     assert sudoku.board == [
@@ -40,7 +40,8 @@ def test_invalid_sudoku():
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
-    board = generate(board,10)
-    valid = is_valid_move(board,0,1,5)  # Introduce an invalid condition
-    solved = sudoku.solve_sudoku(board)
+    board = generate_board(board, 10)
+    board[0][1] = 5  # Introduce an invalid condition
+    sudoku = Sudoku(board)
+    solved = sudoku.solve()
     assert solved == False
